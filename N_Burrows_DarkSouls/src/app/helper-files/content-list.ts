@@ -2,7 +2,7 @@ class ContentList {
 
   private _items: Content[];
 
-  constructor(item: Content) {
+  constructor() {
     this._items = []; // initialize array
   }
 
