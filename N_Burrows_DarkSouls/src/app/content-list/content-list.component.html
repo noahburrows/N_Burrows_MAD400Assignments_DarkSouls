@@ -1,1 +1,8 @@
-<p>content-list works!</p>
+<h1 class="title">{{ content ? content.title : '' }}</h1>
+<div class="description">{{ content ? content.description : '' }}</div>
+<div *ngIf="content ? content.creator : null" class="creator"">
+  {{
+ content ? content.creator
+    : ''
+  }}
+</div>
