@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Content } from '../helper-files/content-interface';
+import { ContentList } from '../helper-files/content-list';
 
 @Component({
   selector: 'app-content-card',
@@ -21,7 +23,7 @@ export class ContentCardComponent implements OnInit {
     stuffList.addContent(ds2)
     stuffList.addContent(ds3)
 
-    console.log(stuffList.processContent(0));
+    //console.log(stuffList.processContent(0));
 
   }
 
