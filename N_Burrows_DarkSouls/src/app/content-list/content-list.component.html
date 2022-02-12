@@ -1,2 +1,6 @@
-<app-content-card *ngFor="let item of digimonList; first as isTheFirstElement"
-                  [content]="item" [class.is-first]="isTheFirstElement"></app-content-card>
+<app-content-card *ngFor="let item of (contentList | findPlatform); first as isTheFirstElement"
+                  [content]="item" [class.is-first]="isTheFirstElement" style="color: black"></app-content-card>
+<app-content-card *ngFor="let item of (contentList | findPlatform:'PS3'); first as isTheFirstElement"
+                  [content]="item" [class.is-first]="isTheFirstElement" style="color: gray"></app-content-card>
+<app-content-card *ngFor="let item of (contentList | findPlatform:'PS4'); first as isTheFirstElement"
+                  [content]="item" [class.is-first]="isTheFirstElement" style="color: blue"></app-content-card>
