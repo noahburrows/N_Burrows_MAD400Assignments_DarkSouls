@@ -4,9 +4,9 @@
     "\\N_Burrows_DarkSouls",
     "\\N_Burrows_DarkSouls\\src",
     "\\N_Burrows_DarkSouls\\src\\app",
-    "\\N_Burrows_DarkSouls\\src\\app\\content-card",
+    "\\N_Burrows_DarkSouls\\src\\app\\content-list",
     "\\N_Burrows_DarkSouls\\src\\app\\helper-files"
   ],
-  "SelectedNode": "\\N_Burrows_DarkSouls\\src\\app\\app.component.ts",
+  "SelectedNode": "\\N_Burrows_DarkSouls\\src\\app\\helper-files\\content-interface.ts",
   "PreviewInSolutionExplorer": false
 }
