@@ -25,4 +25,20 @@ export class ContentListComponent implements OnInit {
         
     } 
 
+
+  updatePage(sTerm: string): void {
+    let found = false;
+
+    for (let i = 0; i < this.contentList.length; i++) {
+      if (this.contentList[i].title == sTerm) {
+        found = true;
+      }
+    }
+
+    if (found) {
+      console.log("Your term has been found!")
+    } else {
+      console.log("No such term exists in this list.")
+    }
+  }
 }
