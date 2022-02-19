@@ -1,18 +1,22 @@
+<!--<form>-->
 <div>
-  <h4>Search</h4>
-  <input #searchTerm>: {{ searchTerm.value }}
-  <br><button (click)="updatePage(searchTerm.value)">Update page</button>
-  <p class="result"></p>
-</div>
-<img *ngIf="content?.imgURL" (click)="logId()" [src]="content?.imgURL">
-<h2>{{ content?.title}}</h2>
-<p class="description">{{ content?.description }}</p>
-<div class="meta-data">
-  <div class="author-info">
-    <span class="creator">{{ content?.creator }}</span>
-    <span *ngIf="content?.type" class="type">{{ content?.type }}</span>
-  </div>
-  <div *ngIf="content?.tags" class="tags">
-    <span class="tag" *ngFor="let tag of content?.tags">{{ tag }}</span>
+  <input #titleSearch>
+  <button (click)="checkForTitle(titleSearch.value)">Title Check</button>
+  <div>
+    <span class="success" *ngIf="titleFound"> {{ titleSearch.value}} found!</span>
+    <span class="failure" *ngIf="titleFound === false"> {{ titleSearch.value}} not found!</span>
   </div>
 </div>
+<!--</form>-->
+
+<!-- No type set -->
+<app-content-card [class.found]="titleSearch.value === item.title" *ngFor="let item of (contentList | typeFilter); first as isTheFirstElement"
+                  [content]="item" [class.is-first]="isTheFirstElement" class="no-type"></app-content-card>
+
+<!-- Rookie type set -->
+<app-content-card [class.found]="titleSearch.value === item.title" *ngFor="let item of (contentList | typeFilter: 'PS4'); first as isTheFirstElement"
+                  [content]="item" [class.is-first]="isTheFirstElement" class="rookie"></app-content-card>
+
+<!--Champion type set -->
+<app-content-card [class.found]="titleSearch.value === item.title" *ngFor="let item of (contentList | typeFilter: 'PS3'); first as isTheFirstElement"
+                  [content]="item" [class.is-first]="isTheFirstElement" [class]="item.type | lowercase"></app-content-card>

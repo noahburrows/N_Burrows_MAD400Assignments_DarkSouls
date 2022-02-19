@@ -1,6 +1,6 @@
 {
   "name": "n-burrows-dark-souls",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,7 @@
     "test": "ng test",
     "generatecomponent": "ng generate component",
     "generatepipe": "ng generate pipe",
-    "generatedirective": "ng generate directive"
+    "gd": "ng generate directive"
 
   },
   "private": true,

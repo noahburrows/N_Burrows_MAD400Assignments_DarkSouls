@@ -4,3 +4,7 @@
                   [content]="item" [class.is-first]="isTheFirstElement" style="color: gray"></app-content-card>
 <app-content-card *ngFor="let item of (contentList | findPlatform:'PS4'); first as isTheFirstElement"
                   [content]="item" [class.is-first]="isTheFirstElement" style="color: blue"></app-content-card>
+
+<div [ngSwitch]='content.imgURL'>
+  <span *ngSwitchDefault>https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/10/Dark-Souls-1-Dark-Sign.jpg?q=50&fit=crop&w=1280&dpr=1.5</span>
+</div>
