@@ -9,6 +9,7 @@ import { Content } from '../helper-files/content-interface';
 export class ContentListComponent implements OnInit {
 
   contentList: Content[];
+  titleFound?: boolean;
 
   constructor() {
     this.contentList = [{ id: 1, title: "First one", description: "This is the first Dark Souls", creator: "From Software", type: "PS3" },
@@ -26,19 +27,18 @@ export class ContentListComponent implements OnInit {
     } 
 
 
-  updatePage(sTerm: string): void {
-    let found = false;
-
-    for (let i = 0; i < this.contentList.length; i++) {
-      if (this.contentList[i].title == sTerm) {
-        found = true;
-      }
+  checkForTitle(title: string): void {
+    if (this.contentList.some(c => c.title === title)) {
+      this.titleFound = true;
     }
-
-    if (found) {
-      console.log("Your term has been found!")
-    } else {
-      console.log("No such term exists in this list.")
+    else {
+      this.titleFound = false;
+    }
+    if (this.contentList.filter(c => c.title === title).length) {
+      this.titleFound = true;
+    }
+    else {
+      this.titleFound = false;
     }
   }
 }

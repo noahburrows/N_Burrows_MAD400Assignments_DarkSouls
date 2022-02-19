@@ -12,6 +12,23 @@
     border: 2px solid #000;
   }
 
+  &.rookie {
+    background-color: burlywood;
+  }
+
+  &.champion {
+    background-color: aquamarine;
+  }
+
+  &.no-type {
+    background-color: peru;
+  }
+
+  &.found {
+    border-color: #00ff00;
+    border-width: 5px;
+  }
+
   img {
     margin: 10px;
     max-width: 350px;

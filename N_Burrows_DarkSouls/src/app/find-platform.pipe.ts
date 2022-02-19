@@ -6,8 +6,10 @@ import { Content } from './helper-files/content-interface';
 })
 export class FindPlatformPipe implements PipeTransform {
 
-  transform(contentList: Content[], platform?: String) {
-    return contentList.filter(c => c.type == platform);
+  transform(contentList: Content[], platform?: String): Content[] {
+    return contentList.filter(c => {
+      return platform ? c.type === platform : (!c.type || c.type === '');
+    });
   }
 
 }
