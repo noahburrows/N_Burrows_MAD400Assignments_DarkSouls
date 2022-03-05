@@ -41,4 +41,12 @@ export class ContentListComponent implements OnInit {
       this.titleFound = false;
     }
   }
+
+  addContentToList(newContent: Content): void {
+    console.log("The list before I push: ", this.contentList);
+    this.contentList.push(newContent);
+    console.log("The list AFTER I push: ", this.contentList);
+    this.contentList = [...this.contentList]; 
+
+  }
 }

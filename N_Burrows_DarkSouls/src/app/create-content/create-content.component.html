@@ -1,0 +1,24 @@
+<div>
+  ID: <input #id type="number">
+</div>
+<div>
+  Name: <input #title>
+</div>
+<div>
+  Description: <input #description>
+</div>
+<div>
+  Creator: <input #creator>
+</div>
+<div>
+  Img url: <input #imageUrl>
+</div>
+<div>
+  Tags: <input #tags>
+</div>
+<div>
+  <button (click)="addContent(id.value, title.value, description.value, creator.value, imageUrl.value,  tags.value)">
+    Add
+    Content
+  </button>
+</div>
