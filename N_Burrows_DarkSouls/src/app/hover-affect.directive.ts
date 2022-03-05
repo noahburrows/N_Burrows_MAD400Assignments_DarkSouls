@@ -4,20 +4,35 @@ import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/cor
   selector: '[appHoverAffect]'
 })
 export class HoverAffectDirective {
+  @Input() affect?: string;
+  @Input() firstOrLast?: boolean;
+  originalBorder: string;
 
-  constructor(private elem: ElementRef) {
+  constructor(private elm: ElementRef) {
+    this.originalBorder = this.elm.nativeElement.style.border;
   }
 
-  @HostListener('mouseover')
-  onMouseOver() {
-    this.elem.nativeElement.style.textDecoration = 'underline';
-    this.elem.nativeElement.style.fontStyle = 'bold';
+  @HostListener("mouseenter") onMouseEnter() {
+    if (this.affect == "textDecoration") { // operating on type
+      this.elm.nativeElement.style.textDecoration = "underline";
+    }
+    else if (this.affect == "fontWeight") { // operating on tags
+      this.elm.nativeElement.style.fontWeight = "bold";
+    }
+    else if (this.affect == "border" && this.firstOrLast) { //operating on card
+      this.elm.nativeElement.style.border = "4px dashed #00f";
+    }
   }
-
-  @HostListener('mouseout')
-  onMouseOut() {
-    this.elem.nativeElement.style.textDecoration = 'none';
-    this.elem.nativeElement.style.fontStyle = 'none';
+  @HostListener("mouseleave") onMouseLeave() {
+    if (this.affect == "textDecoration") { // operating on type
+      this.elm.nativeElement.style.textDecoration = "initial";
+    }
+    else if (this.affect == "fontWeight") { // operating on tags
+      this.elm.nativeElement.style.fontWeight = "normal";
+    }
+    else if (this.affect == "border" && this.firstOrLast) { //operating on card
+      this.elm.nativeElement.style.border = this.originalBorder;
+    }
   }
 
 }
