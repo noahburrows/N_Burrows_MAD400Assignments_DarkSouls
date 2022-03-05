@@ -20,7 +20,12 @@ export class ContentListComponent implements OnInit {
       { id: 6, title: "Not Dark Souls one", description: "This is the original Souls game.", creator: "From Software", type: "PS3" },
         { id: 7, title: "Not Dark Souls again", description: "This is the remake of the original", creator: "Bluepoint Games" }
     ]
+
+    
+    
   }
+
+  
     
     ngOnInit(): void {
         
@@ -43,10 +48,25 @@ export class ContentListComponent implements OnInit {
   }
 
   addContentToList(newContent: Content): void {
-    console.log("The list before I push: ", this.contentList);
-    this.contentList.push(newContent);
-    console.log("The list AFTER I push: ", this.contentList);
-    this.contentList = [...this.contentList]; 
+
+    let ourPromise = new Promise(function (success, fail) {
+      if (newContent.title != "") {
+        success(newContent);
+      }
+      else {
+        fail("Content failed to add.");
+      }
+    });
+
+    ourPromise.then(successResult => {
+      this.contentList.push(newContent);
+      console.log(newContent.title + " added successfully!");
+      this.contentList = [...this.contentList];
+    }
+      )
+      .catch((failResult) => { return console.log(failResult); });
+
+    
 
   }
 }
