@@ -11,6 +11,7 @@ export class ContentListComponent implements OnInit {
 
   contentList: Content[];
   titleFound?: boolean;
+  singleCard: Content | undefined;
 
   constructor(private gameService: GameService) {
     this.contentList = [];
@@ -19,6 +20,10 @@ export class ContentListComponent implements OnInit {
     ngOnInit(): void {
       this.gameService.getContentObs().subscribe(gamearray => {
         this.contentList = gamearray;
+      });
+
+      this.gameService.getSingleContent(1).subscribe(game => {
+        this.singleCard = game;
       });
     } 
 

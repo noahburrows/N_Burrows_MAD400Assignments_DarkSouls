@@ -10,11 +10,15 @@ export class GameService {
 
   constructor() { }
 
-  getContent(): Content[] { // returns content synchronously
+  getContent(): Content[] {
     return CONTENT;
   }
 
   getContentObs(): Observable<Content[]> {
     return of(CONTENT);
+  }
+
+  getSingleContent(id: number): Observable<Content> {
+    return of(CONTENT[id])
   }
 }
