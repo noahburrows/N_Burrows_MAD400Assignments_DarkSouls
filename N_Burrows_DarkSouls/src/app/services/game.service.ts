@@ -15,7 +15,7 @@ export class GameService {
     headers: new HttpHeaders({ 'Content-type': 'application/json' })
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private messageService: MessageService, private http: HttpClient) { }
 
   //Async version, better for retrieving data
   getContentObs(): Observable<Content[]> {
@@ -24,15 +24,12 @@ export class GameService {
 
   //Get a single card based on id
   getSingleContent(id: number): Observable<Content> {
-    //this.messageService.add('Retrieving game at id: '+id);
+    this.messageService.add('Retrieving game at id: '+id);
     return of(CONTENT[id])
   }
 
   addContent(newContentItem: Content): Observable<Content> {
+    this.messageService.add('Adding new content');
     return this.http.post<Content>("api/content", newContentItem, this.httpOptions);
-  }
-
-  updateContent(contentItem: Content): Observable<any> {
-    return this.http.put("api/content", contentItem, this.httpOptions);
   }
 }

@@ -42,4 +42,17 @@ export class ContentListComponent implements OnInit {
       this.titleFound = false;
     }
   }
+
+  getContentFromServer(): void {
+    this.gameService.getContentObs().subscribe(contentarray => {
+      console.log("Got the content from the server: ", contentarray);
+      this.contentList = contentarray;
+    });
+  }
+
+  addContentToList(newContentItem: Content): void {
+    this.gameService.addContent(newContentItem).subscribe(newContentFromServer => {
+      this.getContentFromServer();
+    });
+  }
 }

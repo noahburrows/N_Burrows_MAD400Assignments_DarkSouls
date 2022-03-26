@@ -13,6 +13,7 @@ import { HttpClientModule } from
 import { HttpClientInMemoryWebApiModule } from
   "angular-in-memory-web-api";
 import { InMemoryDataService } from "./services/in-memory-data.service";
+import { ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InMemoryDataService } from "./services/in-memory-data.service";
     ContentListComponent,
     FindPlatformPipe,
     HoverAffectDirective,
-    MessagesComponent
+    MessagesComponent,
+    ModifyContentComponentComponent
   ],
   imports: [
     BrowserModule,
