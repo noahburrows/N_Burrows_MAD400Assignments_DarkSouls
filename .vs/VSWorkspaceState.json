@@ -6,8 +6,10 @@
     "\\N_Burrows_DarkSouls\\src\\app",
     "\\N_Burrows_DarkSouls\\src\\app\\content-card",
     "\\N_Burrows_DarkSouls\\src\\app\\content-list",
-    "\\N_Burrows_DarkSouls\\src\\app\\helper-files"
+    "\\N_Burrows_DarkSouls\\src\\app\\helper-files",
+    "\\N_Burrows_DarkSouls\\src\\app\\messages",
+    "\\N_Burrows_DarkSouls\\src\\app\\services"
   ],
-  "SelectedNode": "\\N_Burrows_DarkSouls\\src\\app\\content-card\\content-card.component.html",
+  "SelectedNode": "\\N_Burrows_DarkSouls\\src\\app\\messages\\messages.component.html",
   "PreviewInSolutionExplorer": false
 }

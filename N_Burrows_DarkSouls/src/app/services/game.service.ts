@@ -4,27 +4,35 @@ import { Content } from '../helper-files/content-interface';
 import { CONTENT } from '../helper-files/contentDb';
 import { MessageService } from './message.service';
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
 
-  constructor(private messageService: MessageService) { }
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-type': 'application/json' })
+  };
 
-  //Bad version
-  /*getContent(): Content[] {
-    return CONTENT;
-  }*/
+  constructor(private http: HttpClient) { }
 
   //Async version, better for retrieving data
   getContentObs(): Observable<Content[]> {
-    this.messageService.add('Successfully retrieved games!');
-    return of(CONTENT);
+    return this.http.get<Content[]>("api/content");
   }
 
   //Get a single card based on id
   getSingleContent(id: number): Observable<Content> {
-    this.messageService.add('Retrieving game at id: '+id);
+    //this.messageService.add('Retrieving game at id: '+id);
     return of(CONTENT[id])
+  }
+
+  addContent(newContentItem: Content): Observable<Content> {
+    return this.http.post<Content>("api/content", newContentItem, this.httpOptions);
+  }
+
+  updateContent(contentItem: Content): Observable<any> {
+    return this.http.put("api/content", contentItem, this.httpOptions);
   }
 }
