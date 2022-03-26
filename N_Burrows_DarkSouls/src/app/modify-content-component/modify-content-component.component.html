@@ -1,24 +1,26 @@
-<div>
-  Name: <input #title>
-</div>
-<div>
-  Description: <input #description>
-</div>
-<div>
-  Creator: <input #creator>
-</div>
-<div>
-  Img url: <input #imageUrl>
-</div>
-<div>
-  Type: <input #type>
-</div>
-<div>
-  Tags: <input #tags>
-</div>
-<div>
-  <button (click)="addContent(title.value, description.value, creator.value, imageUrl.value, type.value, tags.value)">
-    Add
-    Game
-  </button>
-</div>
+<form>
+  <div>
+    Name: <input #title>
+  </div>
+  <div>
+    Description: <input #description>
+  </div>
+  <div>
+    Creator: <input #creator>
+  </div>
+  <div>
+    Img url: <input #imageUrl>
+  </div>
+  <div>
+    Type: <input #type>
+  </div>
+  <div>
+    Tags: <input #tags>
+  </div>
+  <div>
+    <button type="reset" (click)="addContent(title.value, description.value, creator.value, imageUrl.value, type.value, tags.value)">
+      Add
+      Game
+    </button>
+  </div>
+</form>
