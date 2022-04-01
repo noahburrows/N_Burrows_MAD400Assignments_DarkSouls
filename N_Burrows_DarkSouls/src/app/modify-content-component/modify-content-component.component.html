@@ -1,26 +1,31 @@
-<form>
+<mat-form-field>
   <div>
-    Name: <input #title>
+    Name: <input matInput #title>
   </div>
   <div>
-    Description: <input #description>
+    Description: <input matInput #description>
   </div>
   <div>
-    Creator: <input #creator>
+    Creator: <input matInput #creator>
   </div>
   <div>
-    Img url: <input #imageUrl>
+    Img url: <input matInput #imageUrl>
   </div>
   <div>
-    Type: <input #type>
+    Type: <input matInput #type>
   </div>
   <div>
-    Tags: <input #tags>
+    Tags: <input matInput #tags>
   </div>
   <div>
-    <button type="reset" (click)="addContent(title.value, description.value, creator.value, imageUrl.value, type.value, tags.value)">
+    <button mat-raised-button type="reset" (click)="addContent(title.value, description.value, creator.value, imageUrl.value, type.value, tags.value)">
       Add
       Game
     </button>
+    <button mat-raised-button type="reset" (click)="openDialog()">
+      Add
+      NEW
+      Game
+    </button>
   </div>
-</form>
+</mat-form-field>
