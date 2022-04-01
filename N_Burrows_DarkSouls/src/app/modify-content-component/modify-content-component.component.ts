@@ -8,25 +8,32 @@ import { MessagesComponent } from '../messages/messages.component';
   templateUrl: './modify-content-component.component.html',
   styleUrls: ['./modify-content-component.component.scss']
 })
-export class ModifyContentComponentComponent implements OnInit {
+export class ModifyContentComponentComponent {
 
   @Output() newContentEvent: EventEmitter<Content> = new EventEmitter<Content>();
   newContent?: Content;
+
+  title?: string;
+  description?: string;
+  creator?: string;
+  imgURL?: string;
+  type?: string;
+  tags?: string;
 
   constructor(public dialog: MatDialog) { }
 
   openDialog(): void {
     console.log("dialog opened");
-    //this.dialog.open(MessagesComponent);
-    const dialogRef = this.dialog.open(ModifyContentComponentComponent, {
-      width: '250px',
-      data: { content: this.newContent },
-    });
+      const dialogRef = this.dialog.open(DialogWindow, {
+        width: '400px',
+        data: { title: this.title, description: this.description, creator: this.creator, imgURL: this.imgURL, type: this.type, tags: this.tags },
+      });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-     // this.addContent(this.title, this.description, this.creator, this.imageURL, this.type, this.tags)
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        //this.title = result.title;
+        this.addContent(result.title, result.description, result.creator, result.imageUrl, result.type, result.tags = "")
+      });
   }
 
   ngOnInit(): void {
@@ -44,4 +51,21 @@ export class ModifyContentComponentComponent implements OnInit {
     this.newContentEvent.emit(this.newContent);
   }
 
+}
+
+@Component({
+  selector: 'app-modify-content-component-dialog',
+  templateUrl: './modify-content-component-dialog.html',
+  styleUrls: ['./modify-content-component.component.scss']
+})
+export class DialogWindow {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogWindow>,
+    @Inject(MAT_DIALOG_DATA) public data: Content,
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

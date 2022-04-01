@@ -13,7 +13,7 @@ import { HttpClientModule } from
 import { HttpClientInMemoryWebApiModule } from
   "angular-in-memory-web-api";
 import { InMemoryDataService } from "./services/in-memory-data.service";
-import { ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
+import { ModifyContentComponentComponent, DialogWindow } from './modify-content-component/modify-content-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -28,7 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FindPlatformPipe,
     HoverAffectDirective,
     MessagesComponent,
-    ModifyContentComponentComponent
+    ModifyContentComponentComponent, DialogWindow
   ],
   imports: [
     BrowserModule,
