@@ -19,7 +19,13 @@
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Type</mat-label>
-    <input matInput [(ngModel)]="data.type">
+    <select matNativeControl [(ngModel)]="data.type" matTooltip="The main platform for the game">
+      <option value=""></option>
+      <option *ngFor="let type of types" [value]="type"
+              >
+        {{ type }}
+      </option>
+    </select>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Tags</mat-label>
@@ -28,5 +34,5 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Nevermind</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial matTooltip="Add the game to the list" >Ok</button>
 </div>

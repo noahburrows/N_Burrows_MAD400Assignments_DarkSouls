@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output, Inject } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MessagesComponent } from '../messages/messages.component';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modify-content-component',
@@ -68,4 +69,10 @@ export class DialogWindow {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  types: string[] = [
+    "PS3",
+    "PS4",
+    "PS5"
+  ]
 }
