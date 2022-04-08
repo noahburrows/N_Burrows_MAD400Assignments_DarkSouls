@@ -1,0 +1,19 @@
+<div *ngIf="individualContent" class="content-{{individualContent?.id}}">
+  <img *ngIf="individualContent?.imgURL" [src]="individualContent?.imgURL">
+  <img *ngIf="!individualContent?.imgURL" 
+       src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/10/Dark-Souls-1-Dark-Sign.jpg?q=50&fit=crop&w=1280&dpr=1.5"> <!-- Default image -->
+  <h2>{{ individualContent?.title}}</h2>
+  <p class="description">{{ individualContent?.description }}</p>
+  <div class="meta-data">
+    <div class="author-info">
+      <span class="creator">{{ individualContent?.creator }}</span>
+      <span appHoverAffect affect="textDecoration" *ngIf="individualContent?.type" class="type">{{ individualContent?.type }}</span>
+    </div>
+    <div *ngIf="individualContent?.tags" class="tags">
+      <span appHoverAffect affect="fontWeight" class="tag" *ngFor="let tag of individualContent?.tags">{{ tag }}</span>
+    </div>
+  </div>
+</div>
+<div *ngIf="!individualContent">
+  Content at that id does not exist
+</div>

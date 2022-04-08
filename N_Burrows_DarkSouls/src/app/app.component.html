@@ -1,2 +1,15 @@
-<app-content-list></app-content-list>
+<a routerLink="content" routerLinkActive="active"
+   [routerLinkActiveOptions]="{ exact: true }">
+  Content List
+</a>
+<br />
+<a routerLink="content/3" routerLinkActive="active">
+  The Third Game
+</a>
+<br />
+<a routerLink="pagewillnotbefound" routerLinkActive="active">
+  Invalid page link
+</a>
+<br />
+<router-outlet></router-outlet>
 <app-messages></app-messages>

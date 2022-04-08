@@ -20,6 +20,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FindPlatformPipe,
     HoverAffectDirective,
     MessagesComponent,
-    ModifyContentComponentComponent, DialogWindow
+    ModifyContentComponentComponent, DialogWindow, ContentDetailComponent, PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTooltipModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
