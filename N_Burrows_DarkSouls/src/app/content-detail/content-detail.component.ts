@@ -20,7 +20,7 @@ export class ContentDetailComponent implements OnInit {
         console.error("ID was not set!");
       }
       this.id = Number(params.get('id') ?? "0"); // uses the + unary operator
-      this.gameService.getSingleContent(this.id).subscribe((singleContent) => {
+      this.gameService.getSingleContent(this.id-1).subscribe((singleContent) => {
         this.individualContent = singleContent;
       });
     });
