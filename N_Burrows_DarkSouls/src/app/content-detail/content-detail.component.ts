@@ -19,7 +19,8 @@ export class ContentDetailComponent implements OnInit {
       if (!params.get('id')) {
         console.error("ID was not set!");
       }
-      this.id = Number(params.get('id') ?? "0"); // uses the + unary operator
+      this.id = Number(params.get('id') ?? "0");
+      //Since the first game uses ID = 1, we need to include this.id-1 so that the proper game is linked.
       this.gameService.getSingleContent(this.id-1).subscribe((singleContent) => {
         this.individualContent = singleContent;
       });
