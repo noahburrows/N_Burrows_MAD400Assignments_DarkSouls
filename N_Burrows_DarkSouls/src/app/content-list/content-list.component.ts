@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { GameService } from '../services/game.service';
+import {LogUpdateService} from '../log-update.service'
 
 @Component({
   selector: 'app-content-list',
@@ -13,7 +14,7 @@ export class ContentListComponent implements OnInit {
   titleFound?: boolean;
   singleCard: Content | undefined;
 
-  constructor(private gameService: GameService) {
+  constructor(private gameService: GameService, private logService: LogUpdateService) {
     this.contentList = [];
   }
     
@@ -25,6 +26,10 @@ export class ContentListComponent implements OnInit {
       this.gameService.getSingleContent(1).subscribe(game => {
         this.singleCard = game;
       });
+
+      this.logService.init();
+
+      this.logService.showSnackBar();
     } 
 
 
