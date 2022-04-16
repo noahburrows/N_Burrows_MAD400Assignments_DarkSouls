@@ -4,13 +4,13 @@
     "\\N_Burrows_DarkSouls",
     "\\N_Burrows_DarkSouls\\src",
     "\\N_Burrows_DarkSouls\\src\\app",
-    "\\N_Burrows_DarkSouls\\src\\app\\content-card",
-    "\\N_Burrows_DarkSouls\\src\\app\\content-list",
+    "\\N_Burrows_DarkSouls\\src\\app\\content-detail",
     "\\N_Burrows_DarkSouls\\src\\app\\helper-files",
     "\\N_Burrows_DarkSouls\\src\\app\\messages",
     "\\N_Burrows_DarkSouls\\src\\app\\modify-content-component",
+    "\\N_Burrows_DarkSouls\\src\\app\\page-not-found",
     "\\N_Burrows_DarkSouls\\src\\app\\services"
   ],
-  "SelectedNode": "\\N_Burrows_DarkSouls\\src\\app\\app.module.ts",
+  "SelectedNode": "\\N_Burrows_DarkSouls\\src\\app\\content-list\\content-list.component.html",
   "PreviewInSolutionExplorer": false
 }
